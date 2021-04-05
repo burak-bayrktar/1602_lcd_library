@@ -35,13 +35,12 @@ int main(void){
     clock_setup();
     gpio_setup();
     i2c_setup();
-    char str[]="Burak Bayraktar";
     lcd_init(I2C1);
-    lcd_write(str, I2C1);
-    lcd_cursor_pos(2, 2, I2C1);
+    char str[]="Hello World";
     lcd_write(str, I2C1);
 
     while (1) {
+        // we can see the blink, if no halt occured beforehand
         gpio_toggle(GPIOC, GPIO13);
         for (size_t i = 0; i < 900000; i++){
             __asm__("nop");
